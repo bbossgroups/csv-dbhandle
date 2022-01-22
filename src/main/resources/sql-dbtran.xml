@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<properties>
+    <description>
+        <![CDATA[
+	配置数据导入的sql
+ ]]>
+    </description>
+
+
+    <property name="insertcityperson">
+        <![CDATA[
+        INSERT INTO `cityperson`
+            (`rowNo`,
+            `shebao_org`,
+            `person_no`,
+            `name`,
+            `cert_type`,
+            `cert_no`,
+            `zhs_item`,
+            `zhs_class`,
+            `zhs_sub_class`,
+            `zhs_year`,
+            `zhs_level`)
+            VALUES
+            (#[rowNo],
+            #[shebao_org],
+            #[person_no],
+            #[name],
+            #[cert_type],
+            #[cert_no],
+            #[zhs_item],
+            #[zhs_class],
+            #[zhs_sub_class],
+            #[zhs_year],
+            #[zhs_level])
+         ]]>
+    </property>
+
+    <property name="insertnewmanrequests">
+        <![CDATA[
+        INSERT INTO `newmanrequests`
+            (`rowNo`,
+            `shebao_org`,
+            `person_no`,
+            `name`,
+            `cert_type`,
+            `cert_no`,
+            `zhs_item`,
+            `zhs_class`,
+            `zhs_sub_class`,
+            `zhs_year`,
+            `zhs_level`)
+            VALUES
+            (#[rowNo],
+            #[shebao_org],
+            #[person_no],
+            #[name],
+            #[cert_type],
+            #[cert_no],
+            #[zhs_item],
+            #[zhs_class],
+            #[zhs_sub_class],
+            #[zhs_year],
+            #[zhs_level])
+         ]]>
+    </property>
+
+    <property name="insertnewmanrequests2">
+        <![CDATA[
+        INSERT INTO `newmanrequests2`
+            (`rowNo`,
+            `shebao_org`,
+            `person_no`,
+            `name`,
+            `by_year`,
+            `cert_type`,
+            `cert_no`,
+            `zhs_item`,
+            `zhs_class`,
+            `zhs_sub_class`,
+            `zhs_year`,
+            `zhs_level`)
+            VALUES
+            (#[rowNo],
+            #[shebao_org],
+            #[person_no],
+            #[name],
+            #[by_year],
+            #[cert_type],
+            #[cert_no],
+            #[zhs_item],
+            #[zhs_class],
+            #[zhs_sub_class],
+            #[zhs_year],
+            #[zhs_level])
+         ]]>
+    </property>
+
+    <property name="insertperson_year">
+        <![CDATA[
+        INSERT INTO person_year (rowNo, cert_no, name, sex, by_year, person_type) VALUES (#[rowNo], #[cert_no], #[name], #[sex], #[by_year], #[person_type]);
+         ]]>
+    </property>
+    INSERT INTO person_year (rowNo, cert_no, name, sex, by_year, person_type) VALUES (0, '', '', '', '', '');
+
+    <property name="querynewmanrequests2"><![CDATA[select * from newmanrequests2 order by rowNo asc]]></property>
+
+
+</properties>
