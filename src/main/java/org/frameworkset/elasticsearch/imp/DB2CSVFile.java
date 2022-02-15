@@ -24,7 +24,7 @@ import org.frameworkset.tran.output.fileftp.FileFtpOupputConfig;
 import org.frameworkset.tran.output.fileftp.FilenameGenerator;
 import org.frameworkset.tran.schedule.CallInterceptor;
 import org.frameworkset.tran.schedule.TaskContext;
-import org.frameworkset.tran.util.RecordGenerator;
+import org.frameworkset.tran.util.HeaderRecordGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -75,7 +75,12 @@ public class DB2CSVFile {
                 return "湖南师大2021年新生医保（2021年）申报名单-合并.csv";
             }
         });
-        fileFtpOupputConfig.setRecordGenerator(new RecordGenerator() {
+        fileFtpOupputConfig.setRecordGenerator(new HeaderRecordGenerator() {
+            @Override
+            public void buildHeaderRecord(Writer builder) throws Exception {
+                builder.write("社保经办机构（建议填写）,人员编号,*姓名,*证件类型,*证件号码,*征收项目,*征收品目,征收子目,*缴费年度,*缴费档次");
+            }
+
             @Override
             public void buildRecord(Context context, CommonRecord record, Writer builder)throws Exception {
                 Map<String,Object> datas = record.getDatas();
