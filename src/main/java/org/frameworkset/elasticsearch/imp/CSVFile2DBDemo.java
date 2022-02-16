@@ -91,6 +91,7 @@ public class CSVFile2DBDemo {
 								return fileInfo.getFileName().equals("cityperson.csv");
 							}
 						})//指定文件过滤器
+						.setSkipHeaderLines(1) //指定忽略前几行记录，忽略标题行
 						.setCloseEOF(true)//已经结束的文件内容采集完毕后关闭文件对应的采集通道，后续不再监听对应文件的内容变化
 						.setEnableInode(false)
 		);

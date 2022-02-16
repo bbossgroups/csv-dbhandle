@@ -20,7 +20,7 @@ import org.frameworkset.tran.DataRefactor;
 import org.frameworkset.tran.DataStream;
 import org.frameworkset.tran.context.Context;
 import org.frameworkset.tran.input.fileftp.db.DB2FileFtpImportBuilder;
-import org.frameworkset.tran.output.fileftp.FileFtpOupputConfig;
+import org.frameworkset.tran.output.fileftp.FileOupputConfig;
 import org.frameworkset.tran.output.fileftp.FilenameGenerator;
 import org.frameworkset.tran.schedule.CallInterceptor;
 import org.frameworkset.tran.schedule.TaskContext;
@@ -62,11 +62,9 @@ public class DB2CSV1File {
         ;
 
 
-        FileFtpOupputConfig fileFtpOupputConfig = new FileFtpOupputConfig();
+        FileOupputConfig fileFtpOupputConfig = new FileOupputConfig();
 
-        fileFtpOupputConfig.setDisableftp(true);
         fileFtpOupputConfig.setFileDir("D:\\workspace\\bbossesdemo\\cvs-dbhandle\\excel\\hebin");//数据生成目录
-
         fileFtpOupputConfig.setFilenameGenerator(new FilenameGenerator() {
             @Override
             public String genName(TaskContext taskContext, int fileSeq) {
@@ -111,7 +109,7 @@ public class DB2CSV1File {
                 builder.write(strBuilder.toString());
             }
         });
-        importBuilder.setFileFtpOupputConfig(fileFtpOupputConfig);
+        importBuilder.setFileOupputConfig(fileFtpOupputConfig);
 //		importBuilder.setIncreamentEndOffset(300);//单位秒
         //vops-chbizcollect-2020.11.26,vops-chbizcollect-2020.11.27
 
