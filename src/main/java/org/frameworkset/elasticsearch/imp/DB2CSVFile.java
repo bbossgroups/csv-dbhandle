@@ -158,7 +158,7 @@ public class DB2CSVFile {
         //映射和转换配置结束
 
         /**
-         * 一次、作业创建一个内置的线程池，实现多线程并行数据导入elasticsearch功能，作业完毕后关闭线程池
+         * 内置线程池配置，实现多线程并行数据导入功能，作业完成退出时自动关闭该线程池
          */
         importBuilder.setParallel(false);//设置为多线程并行批量导入,false串行
         importBuilder.setContinueOnError(true);//任务出现异常，是否继续执行作业：true（默认值）继续执行 false 中断作业执行
