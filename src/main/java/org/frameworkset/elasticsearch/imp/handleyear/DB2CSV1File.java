@@ -18,10 +18,11 @@ package org.frameworkset.elasticsearch.imp.handleyear;
 import org.frameworkset.tran.CommonRecord;
 import org.frameworkset.tran.DataRefactor;
 import org.frameworkset.tran.DataStream;
+import org.frameworkset.tran.config.ImportBuilder;
 import org.frameworkset.tran.context.Context;
-import org.frameworkset.tran.input.fileftp.db.DB2FileFtpImportBuilder;
-import org.frameworkset.tran.output.fileftp.FileOupputConfig;
 import org.frameworkset.tran.output.fileftp.FilenameGenerator;
+import org.frameworkset.tran.plugin.db.input.DBInputConfig;
+import org.frameworkset.tran.plugin.file.output.FileOutputConfig;
 import org.frameworkset.tran.schedule.CallInterceptor;
 import org.frameworkset.tran.schedule.TaskContext;
 import org.frameworkset.tran.util.RecordGenerator;
@@ -53,7 +54,7 @@ public class DB2CSV1File {
 
     public static void scheduleTimestampImportData() {
 
-        DB2FileFtpImportBuilder importBuilder = new DB2FileFtpImportBuilder();
+        ImportBuilder importBuilder = new ImportBuilder();
         importBuilder
                 .setBatchSize(500)
                 .setFetchSize(1000)
@@ -62,9 +63,9 @@ public class DB2CSV1File {
         ;
 
 
-        FileOupputConfig fileFtpOupputConfig = new FileOupputConfig();
+        FileOutputConfig fileFtpOupputConfig = new FileOutputConfig();
 
-        fileFtpOupputConfig.setFileDir("D:\\workspace\\bbossesdemo\\cvs-dbhandle\\excel\\hebin");//数据生成目录
+        fileFtpOupputConfig.setFileDir("D:\\workspace\\bbossesdemo\\csv-dbhandle\\excel\\hebin");//数据生成目录
         fileFtpOupputConfig.setFilenameGenerator(new FilenameGenerator() {
             @Override
             public String genName(TaskContext taskContext, int fileSeq) {
@@ -109,14 +110,14 @@ public class DB2CSV1File {
                 builder.write(strBuilder.toString());
             }
         });
-        importBuilder.setFileOupputConfig(fileFtpOupputConfig);
+        importBuilder.setOutputConfig(fileFtpOupputConfig);
 //		importBuilder.setIncreamentEndOffset(300);//单位秒
         //vops-chbizcollect-2020.11.26,vops-chbizcollect-2020.11.27
-
-        importBuilder
+        DBInputConfig dbInputConfig = new DBInputConfig();
+        dbInputConfig
                 .setSqlFilepath("sql-dbtran.xml")
                 .setSqlName("querynewmanrequests2");
-
+        importBuilder.setInputConfig(dbInputConfig);
 //        //定时任务配置，
 //        importBuilder.setFixedRate(false)//参考jdk timer task文档对fixedRate的说明
 ////					 .setScheduleDate(date) //指定任务开始执行时间：日期
