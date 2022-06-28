@@ -104,6 +104,7 @@
     INSERT INTO person_year (rowNo, cert_no, name, sex, by_year, person_type) VALUES (0, '', '', '', '', '');
 
     <property name="querynewmanrequests2"><![CDATA[select * from newmanrequests2 order by rowNo asc]]></property>
-
+    <property name="newmanrequestsSubCityperson"><![CDATA[select * from newmanrequests where cert_no not in (select cert_no from cityperson) order by rowNo asc]]></property>
+    <property name="citypersonSubNewmanrequests"><![CDATA[select * from cityperson where cert_no not in (select cert_no from newmanrequests) order by rowNo asc]]></property>
 
 </properties>

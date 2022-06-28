@@ -72,7 +72,7 @@ public class DB2CSVFileCitypersionSubNewMan {
             public String genName(TaskContext taskContext, int fileSeq) {
 
 
-                return "不在【湖南师大2021年新生医保（2021年）申报名单】中的【（1月8日导出）城乡居民申报信息列表】.csv";
+                return "不在【湖南师大2021年新生医保（2021年）申报名单】中的【（1月8日导出）城乡居民申报信息列表】"+fileSeq+".csv";
             }
         });
         fileFtpOupputConfig.setRecordGenerator(new RecordGenerator() {
