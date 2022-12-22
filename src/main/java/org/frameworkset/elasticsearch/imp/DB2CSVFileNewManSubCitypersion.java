@@ -139,7 +139,7 @@ public class DB2CSVFileNewManSubCitypersion {
             }
 
             @Override
-            public void throwException(TaskContext taskContext, Exception e) {
+            public void throwException(TaskContext taskContext, Throwable e) {
                 logger.error("",e);
             }
         });
