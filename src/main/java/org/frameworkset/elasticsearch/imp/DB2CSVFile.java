@@ -72,7 +72,7 @@ public class DB2CSVFile {
             public String genName(TaskContext taskContext, int fileSeq) {
 
 
-                return "湖南师大2021年新生医保（2021年）申报名单-合并-"+fileSeq+ ".csv";
+                return "师大2021年新生医保（2021年）申报名单-合并-"+fileSeq+ ".csv";
             }
         });
         fileFtpOupputConfig.setRecordGenerator(new HeaderRecordGenerator() {

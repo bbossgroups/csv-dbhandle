@@ -33,7 +33,7 @@ import java.io.Writer;
 import java.util.Map;
 
 /**
- * <p>Description: 提取不在【（1月8日导出）城乡居民申报信息列表】中的【湖南师大2021年新生医保（2021年）申报名单】数据</p>
+ * <p>Description: 提取不在【（1月8日导出）城乡居民申报信息列表】中的【师大2021年新生医保（2021年）申报名单】数据</p>
  * <p>单表数据增量导出文件-》Ftp</p>
  * <p>Copyright (c) 2020</p>
  *
@@ -72,7 +72,7 @@ public class DB2CSVFileNewManSubCitypersion {
             public String genName(TaskContext taskContext, int fileSeq) {
 
 
-                return "不在【（1月8日导出）城乡居民申报信息列表】中的【湖南师大2021年新生医保（2021年）申报名单】.csv";
+                return "不在【（1月8日导出）城乡居民申报信息列表】中的【师大2021年新生医保（2021年）申报名单】.csv";
             }
         });
         fileFtpOupputConfig.setRecordGenerator(new RecordGenerator() {
