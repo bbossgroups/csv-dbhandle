@@ -63,11 +63,11 @@ public class DB2OPENCSVFile {
         ;
 
 
-        CSVFileOutputConfig fileFtpOupputConfig = new CSVFileOutputConfig();
+        CSVFileOutputConfig csvFileOutputConfig = new CSVFileOutputConfig();
 
-        fileFtpOupputConfig.setFileDir("c:\\data\\csv\\gen");//数据生成目录
+        csvFileOutputConfig.setFileDir("c:\\data\\csv\\gen");//数据生成目录
 
-        fileFtpOupputConfig.setFilenameGenerator(new FilenameGenerator() {
+        csvFileOutputConfig.setFilenameGenerator(new FilenameGenerator() {
             @Override
             public String genName(TaskContext taskContext, int fileSeq) {
 
@@ -75,18 +75,18 @@ public class DB2OPENCSVFile {
                 return "师大2021年新生医保（2021年）申报名单-合并-"+fileSeq+ ".csv";
             }
         });
-        fileFtpOupputConfig.addCellMapping(0, "shebao_org","社保经办机构（建议填写）");
-        fileFtpOupputConfig.addCellMapping(1, "person_no","人员编号");
-        fileFtpOupputConfig.addCellMapping(2, "name","姓名");
-        fileFtpOupputConfig.addCellMapping(3, "cert_type","证件类型");
-        fileFtpOupputConfig.addCellMapping(4, "cert_no","证件号码");
-        fileFtpOupputConfig.addCellMapping(5, "zhs_item","征收项目");
-        fileFtpOupputConfig.addCellMapping(6, "zhs_class","征收品目");
-        fileFtpOupputConfig.addCellMapping(7, "zhs_sub_class","征收子目");
-        fileFtpOupputConfig.addCellMapping(8, "zhs_year","缴费年度");
-        fileFtpOupputConfig.addCellMapping(9, "zhs_level","缴费档次");
+        csvFileOutputConfig.addCellMapping(0, "shebao_org","社保经办机构（建议填写）");
+        csvFileOutputConfig.addCellMapping(1, "person_no","人员编号");
+        csvFileOutputConfig.addCellMapping(2, "name","姓名");
+        csvFileOutputConfig.addCellMapping(3, "cert_type","证件类型");
+        csvFileOutputConfig.addCellMapping(4, "cert_no","证件号码");
+        csvFileOutputConfig.addCellMapping(5, "zhs_item","征收项目");
+        csvFileOutputConfig.addCellMapping(6, "zhs_class","征收品目");
+        csvFileOutputConfig.addCellMapping(7, "zhs_sub_class","征收子目");
+        csvFileOutputConfig.addCellMapping(8, "zhs_year","缴费年度");
+        csvFileOutputConfig.addCellMapping(9, "zhs_level","缴费档次");
       
-        importBuilder.setOutputConfig(fileFtpOupputConfig);
+        importBuilder.setOutputConfig(csvFileOutputConfig);
 //		importBuilder.setIncreamentEndOffset(300);//单位秒
         //vops-chbizcollect-2020.11.26,vops-chbizcollect-2020.11.27
 
